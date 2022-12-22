@@ -13,16 +13,14 @@ axis image
 % User sample water mark color by right-clicking anywhere within the watermark
 watermark_pixel_color = impixel();
 
-% Create mask of this color
-mask = roicolor(indexed, watermark_pixel_color);
-
-% Create a morpological rectangular structing element of row by column pixels
-rows = input("dilate by how many pixels (rows): ");
-columns = input("dilate by how many pixels (columns): ");
-se = strel('rectangle', [rows,columns]);
-
-% Create a second mask that is the dilated version of the initial
-mask2 = imdilate(mask,se);
+% % Create mask of this color
+% mask = roicolor(indexed, watermark_pixel_color);
+% 
+% % Create a morpological rectangular structing element of 3 by 3 pixels
+% se = strel('rectangle', [3,3]);
+% 
+% % Create a second mask that is the dilated version of the initial
+% mask2 = imdilate(mask,se);
 
 % Get rid of watermark
 img_watermark_removed = inpaintExemplar(RGB,mask2);
